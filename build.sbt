@@ -21,6 +21,8 @@ libraryDependencies  ++= Seq(
   "org.scalanlp" %% "breeze-natives" % "0.12" withSources(),
   // the visualization library is distributed separately as well.
   // It depends on LGPL code.
-  "org.scalanlp" %% "breeze-viz" % "0.12" withSources()
+  "org.scalanlp" %% "breeze-viz" % "0.12" withSources(),
+
+  "com.github.pathikrit" %% "better-files" % "2.16.0"
 )
 

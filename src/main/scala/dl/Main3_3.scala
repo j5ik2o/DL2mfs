@@ -45,7 +45,13 @@ object Main3_3 extends App {
   {
     println("---")
     val a: DenseMatrix[Double] = DenseMatrix((1.0, 2.0, 3.0), (4.0, 5.0, 6.0))
+    println(s"a = $a")
     println(s"a.shape = ${a.shape}")
+    val r = a.reshape(1, a.size)
+    println(s"reshape = $r")
+    val r2 = DenseMatrix.vertcat(r, r).reshape(1, r.size * 2, View.Require)
+    println(s"vertcat = $r2")
+
     val b: DenseMatrix[Double] = DenseMatrix((1.0, 2.0), (3.0, 4.0), (5.0, 6.0))
     println(s"b.shape = ${b.shape}")
     val c: DenseMatrix[Double] = a * b
@@ -137,7 +143,7 @@ object Main3_3 extends App {
     }
 
     println("---")
-    val network: collection.mutable.Map[String, DenseMatrix[Double]] = initNetwork()
+    val network = initNetwork()
     val x = DenseVector(1.0, 0.5)
     val y = forward(network, x)
     println(y)
